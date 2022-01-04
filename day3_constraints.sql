@@ -11,7 +11,7 @@
     CHECK - Bir sutundaki tüm verilerin belirlenen özel bir şartı sağlamasını garanti eder. 
     DEFAULT - Herhangi bir değer atanamadığında Başlangıç değerinin atanmasını sağlar.
  ========================================================================================*/
- 
+ use sys;
  CREATE TABLE calisanlar
     (
         id CHAR(5) PRIMARY KEY, -- not null+ unique
@@ -103,10 +103,20 @@ CREATE TABLE talebeler
     INSERT INTO notlar VALUES ('125', 'tarih',90);
 	INSERT INTO notlar VALUES ('126', 'Matematik',90);
     
-    drop table talebeler;
-     drop table notlar;
-      drop table talebeler;
+-- FK ile birleştirilen tablolardaki tüm verileri çekmek için 
+    -- JOIN İşlemi yapmak gerekir. Bu konuyu sonra göreceğiz.
+    SELECT * FROM talebeler, notlar WHERE talebeler.id = notlar.talebe_id;
+    
+drop table talebeler;
+drop table notlar;
+drop table talebeler;
       
 select * from talebeler;
-        DELETE FROM talebeler
-    WHERE id = 124;
+select * from notlar;
+
+
+
+DELETE FROM talebeler WHERE id = 124;
+
+
+
