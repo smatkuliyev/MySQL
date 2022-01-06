@@ -72,9 +72,18 @@ select * from isciler;
 alter table isciler
 modify ulke_adi varchar(30) not null; 
 
+
+
+
+-- -- ************
+
 -- ORNEK7:  maas kisitlamasi ekle
--- alter table isciler add constraint check(maas > 3500); 
--- burada uymadi, belki oracle'de vardi
+ alter table isciler add constraint check(maas >= 3000); 
+
+ -- Maas alt limit kisitlamasi atadik.
+    -- kisitlama atadiktan sonra maasin 3500 altinda olmasi sebebiyle
+    -- alttaki veriyi giremeyiz 
+    INSERT INTO isciler VALUES(123452310, 'Hatice Sahin', 'Bursa', 3100, null);
 
     
     
