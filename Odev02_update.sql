@@ -42,9 +42,14 @@ from calisanlar, aileler
 where calisanlar.id = aileler.id;
 
 -- 5 soru
+select id, isim, (maas + ( select ek_gelir from aileler where calisanlar.id = aileler.id )) as toplam_gelir
+from calisanlar;
 
+-- 6 soru
 
+update calisanlar
+set maas = (maas*1.1)
+ where 2000>(maas+(select ek_gelir from aileler where calisanlar.id=aileler.id))/((select cocuk_sayisi from aileler where calisanlar.id = aileler.id)+2);
 
-
-
-
+select id, isim, maas
+from calisanlar;
