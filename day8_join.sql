@@ -43,6 +43,8 @@ use sys;
     INSERT INTO siparisler VALUES(33, 103, '2020-04-19');
     INSERT INTO siparisler VALUES(44, 104, '2020-04-20');
     INSERT INTO siparisler VALUES(55, 105, '2020-04-21');
+    select * from siparisler;
+    select * from sirketler;
     
     
 /* -----------------------------------------------------------------------------
@@ -249,7 +251,7 @@ order by bolum_isim, p.personel_isim;
   (emine kimin müdürüyse onun satirinda yazsin) 
   maas siralı olarak (Çoktan aza) listeleyiniz.
 ------------------------------------------------------------------------------*/ 
-select b.bolum_isim, p.personel_isim, p.maas, (select personel_isim from personel where p.mudur_id=personel_id) as mudur_isım
+select b.bolum_isim, p.personel_isim, p.maas, (select personel_isim from personel where p.mudur_id=personel_id) as mudur_isim
 from bolumler as b
 right join personel as p
 on p.bolum_id = b.bolum_id  
